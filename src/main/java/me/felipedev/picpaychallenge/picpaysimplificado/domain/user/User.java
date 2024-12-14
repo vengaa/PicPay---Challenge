@@ -2,6 +2,7 @@ package me.felipedev.picpaychallenge.picpaysimplificado.domain.user;
 
 import jakarta.persistence.*;
 import lombok.*;
+import me.felipedev.picpaychallenge.picpaysimplificado.dtos.UserDTO;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -120,5 +121,14 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public User(UserDTO data) {
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
+        this.balance = data.balance();
+        this.userType = data.userType();
+        this.password = data.password();
+        this.email = data.email();
     }
 }
